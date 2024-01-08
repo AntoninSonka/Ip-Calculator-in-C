@@ -106,9 +106,11 @@ int calculateHost(int netmask){
 }
 
 int main(int argc, char *argv[]){
+    
+    //Error handeling and setup
 
     if(argc != 2){
-        printf("spatny pocet argumentu\n");
+        printf("wrong number of arguments\n");
         return 1;
     }
 
@@ -128,6 +130,8 @@ int main(int argc, char *argv[]){
         printf("wrong value on netmask\n");
         return 3;
     }
+
+    //Actual code
 
     if(byte[0] < 248){
         printf("(Class %c)\n\n", ((byte[0] < 128) ? 'A' : ((byte[0] < 192) ? 'B' : ((byte[0] < 224) ? 'C' : ((byte[0] < 240) ? 'D' : 'E')))));
