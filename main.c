@@ -9,7 +9,7 @@ void printBinNum(int x){
     }
 }
 
-void printIpDec(int* byte, char* type){
+void printIpDec(int* byte){
     for(int i = 0; i < 4; i++){
         printf("%03d", byte[i]);
         if(i != 3){
@@ -18,7 +18,7 @@ void printIpDec(int* byte, char* type){
     }
 }
 
-void printIpBin(int* byte, char* type){
+void printIpBin(int* byte){
     for(int i = 0; i < 4; i++){
         printBinNum(byte[i]);
         if(i != 3){
@@ -137,18 +137,18 @@ int main(int argc, char *argv[]){
     }
 
     printf("Adress:   ");
-    printIpDec(byte, "Adress");
+    printIpDec(byte);
     printf("           ");
-    printIpBin(byte, "Adress");
+    printIpBin(byte);
     printf("\n");
     
     int netmaskByte[4] = {255, 255, 255, 255};
     calculateNetmaskAndNetwork(netmaskByte, netmask);
     
     printf("Netmask:  ");
-    printIpDec(netmaskByte, "Netmask");
+    printIpDec(netmaskByte);
     printf(" = %d      ", netmask);
-    printIpBin(netmaskByte, "Netmask");
+    printIpBin(netmaskByte);
     printf("\n");
 
     for(int i = 0; i < 4; i++){
@@ -156,43 +156,43 @@ int main(int argc, char *argv[]){
     }
     
     printf("WildCard: ");
-    printIpDec(netmaskByte, "Wildcard");
+    printIpDec(netmaskByte);
     printf("           ");
-    printIpBin(netmaskByte, "Wildcard");
+    printIpBin(netmaskByte);
     printf("\n\n");
 
     int networkByte[4] = {byte[0], byte[1], byte[2], byte[3]};
     calculateNetmaskAndNetwork(networkByte, netmask);
     
     printf("Network:  ");
-    printIpDec(networkByte, "Network");
+    printIpDec(networkByte);
     printf("           ");
-    printIpBin(networkByte, "Network");
+    printIpBin(networkByte);
     printf("\n");
 
     int brodcastByte[4] = {byte[0], byte[1], byte[2], byte[3]};
     calculateBrodcast(brodcastByte, netmask);
     
     printf("Brodcast: ");
-    printIpDec(brodcastByte, "Brodcast");
+    printIpDec(brodcastByte);
     printf("           ");
-    printIpBin(brodcastByte, "Brodcast");
+    printIpBin(brodcastByte);
     printf("\n");
 
     calculateHostMin(networkByte, netmask);
 
     printf("HostMin:  ");
-    printIpDec(networkByte, "HostMin");
+    printIpDec(networkByte);
     printf("           ");
-    printIpBin(networkByte, "HostMin");
+    printIpBin(networkByte);
     printf("\n");
 
     calculateHostMax(brodcastByte, netmask);
     
     printf("HostMax:  ");
-    printIpDec(brodcastByte, "HostMax");
+    printIpDec(brodcastByte);
     printf("           ");
-    printIpBin(brodcastByte, "HostMax");
+    printIpBin(brodcastByte);
     printf("\n\n");
 
     printf("Hosts/Net: %d\n", calculateHost(netmask));
