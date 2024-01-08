@@ -4,14 +4,12 @@
 #include <math.h>
 
 void printBinNum(int x){
-    unsigned i;
-    for(i = 1 << 7; i > 0; i = i / 2){
-        (x & i) ? printf("1") : printf("0");
+    for(int i = 8; i > 0; i--){
+        printf("%d", (x & (1 << (i - 1))) ? 1 : 0);
     }
 }
 
 void printIpDec(int* byte, char* type){
-    //printf("%s: ", type);
     for(int i = 0; i < 4; i++){
         printf("%03d", byte[i]);
         if(i != 3){
